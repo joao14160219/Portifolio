@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | João Pedro Milhomens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#071424;
+      --bg2:#0e2746;
+      --card:#102a4d;
+      --text:#e6eef7;
+      --muted:#a9c1d9;
+      --accent:#47a0ff;
+      --accent-2:#6cc0ff;
+      --glass: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(60vw 60vw at -10% -10%, rgba(71,160,255,.25), transparent 60%),
+        radial-gradient(50vw 50vw at 110% 10%, rgba(108,192,255,.25), transparent 60%),
+        linear-gradient(135deg,var(--bg1),var(--bg2));
+      overflow-x:hidden;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(180deg, rgba(7,20,36,.75), rgba(7,20,36,.35));
+      border-bottom:1px solid var(--border);
+    }
+    .nav .wrap{
+      max-width:1100px; margin:0 auto; padding:10px 20px;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .brand{font-weight:700; letter-spacing:.5px}
+    .nav a{margin-left:18px; font-weight:500}
+
+    /* HERO */
+    .hero{
+      max-width:1100px; margin:0 auto; padding:60px 20px 40px;
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center;
+      min-height:72vh;
+    }
+    .title{font-size:clamp(28px,4vw,44px); line-height:1.1; color:var(--accent-2)}
+    .subtitle{color:var(--text); opacity:.95; font-weight:600; margin-top:6px}
+    .lead{color:var(--muted); margin:16px 0 24px; font-size:clamp(15px,2vw,18px)}
+
+    .info-grid{
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px;
+    }
+    .chip{
+      background:var(--glass); border:1px solid var(--border); padding:10px 14px; border-radius:12px;
+    }
+
+    /* Floating photo card */
+    .photo-wrap{
+      position:relative; perspective:1000px;
+    }
+    .photo-card{
+      position:relative;
+      width:min(420px, 90%);
+      margin:0 0 0 auto;
+      aspect-ratio: 3/3.6;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 25px 60px rgba(0,0,0,.45);
+      transform-style:preserve-3d;
+      background:linear-gradient(180deg, rgba(71,160,255,.15), rgba(108,192,255,.05));
+      border:1px solid var(--border);
+      animation:float 6s ease-in-out infinite;
+    }
+    .photo-card img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      transform:translateZ(30px) scale(1.02);
+    }
+    .glow{
+      position:absolute; inset:-20%; pointer-events:none;
+      background:radial-gradient(circle at 70% 20%, rgba(71,160,255,.35), transparent 35%);
+      mix-blend-mode:screen; filter:blur(12px);
+    }
+    @keyframes float {
+      0%,100%{ transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+      50%{ transform: translateY(-10px) rotateX(.5deg) rotateY(-.5deg); }
+    }
+
+    /* Sections */
+    section{max-width:1100px; margin:40px auto; padding:0 20px}
+    h2{
+      color:var(--accent);
+      font-size:clamp(20px,3vw,26px);
+      margin:20px 0 14px;
+      display:inline-block;
+      border-left:4px solid var(--accent);
+      padding-left:10px;
+    }
+    .card{
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .grid{
+      display:grid; gap:16px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+    .xp-card h3{margin:0 0 6px 0; font-size:18px; color:#dfeaf6}
+    .xp-meta{color:var(--muted); font-size:14px; margin-bottom:10px}
+    .xp-pills .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:#0f2a4b; border:1px solid var(--border); margin:6px 6px 0 0; font-size:12px}
+    .xp-card ul{padding-left:18px; margin:6px 0 0 0}
+    .xp-card li{margin:6px 0}
+
+    .tag{display:inline-block; padding:8px 12px; border-radius:999px; background:#0f2a4b; border:1px solid var(--border); margin:6px 6px 0 0}
+    .foot{ text-align:center; color:var(--muted); padding:30px 20px 60px }
+
+    /* Reveal on scroll */
+    .reveal{opacity:0; transform:translateY(24px); transition:.8s ease}
+    .reveal.visible{opacity:1; transform:translateY(0)}
+
+    @media(max-width:900px){
+      .hero{ grid-template-columns:1fr; padding-top:36px }
+      .photo-card{ margin:10px auto 0 auto }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap">
+      <div class="brand">João Pedro Milhomens</div>
+      <div>
+        <a href="#sobre">Sobre</a>
+        <a href="#skills">Skills</a>
+        <a href="#formacao">Formação</a>
+        <a href="#experiencias">Experiências</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1 class="title">• Dev • Analista em Formação</h1>
+      <div class="subtitle">Automação de processos, dados em dashboards e soluções web</div>
+      <p class="lead">
+        Apaixonado por tecnologia e pela transformação de dados crus em produtos visuais e decisões rápidas. 
+        Foco em Python, JavaScript (React/Node), SQL, VBA e Power BI.
+      </p>
+
+      <div class="info-grid">
+        <div class="chip">São Paulo, BR</div>
+        <div class="chip"><a href="mailto:joaopppmil@gmail.com">joaopppmil@gmail.com</a></div>
+        <div class="chip"><a href="https://www.linkedin.com/in/jo%C3%A3o-milhomens-9bb988276/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+        <div class="chip">+55 (11) 94739-9254</div>
+      </div>
+    </div>
+
+    <!-- Floating / interactive photo on the right -->
+    <div class="photo-wrap" id="photoWrap" aria-label="Foto de perfil">
+      <div class="photo-card" id="photoCard">
+        <img src="EU.jfif" alt="João Pedro sorrindo, camisa preta, fundo lilás" />
+        <div class="glow"></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="sobre">
+    <h2>Sobre</h2>
+    <div class="card reveal">
+      <p>
+        Gosto de simplificar o complexo. Tenho um interesse real por automações e por tudo que remove retrabalho, acelera processos e transforma dados em decisões. Curto entender o porquê das coisas, desmontar problemas e reconstruir soluções mais rápidas, inteligentes e eficientes.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Habilidades Técnicas</h2>
+    <div class="grid reveal">
+      <div class="card">Python</div>
+      <div class="card">HTML • CSS • JavaScript</div>
+      <div class="card">React</div>
+      <div class="card">Node.js</div>
+      <div class="card">SQL</div>
+      <div class="card">VBA</div>
+      <div class="card">Power BI</div>
+    </div>
+    <div class="reveal" style="margin-top:12px">
+      <span class="tag">Automação</span>
+      <span class="tag">ETL</span>
+      <span class="tag">APIs</span>
+      <span class="tag">Dashboards</span>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <h2>Formação</h2>
+    <div class="card reveal">
+      <strong>Sistemas de Informação</strong> — Universidade Mackenzie<br/>
+      Início: 2023 • Término previsto: Dez/2026
+    </div>
+  </section>
+
+  <section id="experiencias">
+    <h2>Experiências</h2>
+    <div class="grid reveal">
+      <div class="card xp-card">
+        <h3>I.C.R. — Estágio em Tecnologia</h3>
+        <div class="xp-meta">Mar/2023 – Mai/2023 • São Paulo, BR</div>
+        <ul>
+          <li>Suporte técnico e manutenção de ambientes e contas.</li>
+          <li>Apoio a scripts de automação e melhoria de rotinas.</li>
+          <li>Atendimento a usuários, documentação e organização de chamados.</li>
+        </ul>
+        <div class="xp-pills">
+          <span class="pill">Suporte</span>
+          <span class="pill">Automação</span>
+          <span class="pill">Documentação</span>
+        </div>
+      </div>
+
+      <div class="card xp-card">
+        <h3>Verzani &amp; Sandrini — Estagiário em Remuneração (Automação)</h3>
+        <div class="xp-meta">Jun/2023 – Atual • São Paulo, BR</div>
+        <ul>
+          <li>Desenvolvimento de automações em planilhas e integração de dados.</li>
+          <li>Criação de dashboards e ferramentas internas para decisão.</li>
+          <li>Melhoria de processos, padronização e ganho de eficiência.</li>
+        </ul>
+        <div class="xp-pills">
+          <span class="pill">Power BI</span>
+          <span class="pill">VBA</span>
+          <span class="pill">JS/SQL</span>
+          <span class="pill">Automação</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <div class="card reveal">
+      <p>E-mail: <a href="mailto:joaopppmil@gmail.com">joaopppmil@gmail.com</a></p>
+      <p>Telefone: +55 (11) 94739-9254</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/jo%C3%A3o-milhomens-9bb988276/" target="_blank" rel="noreferrer">joão-milhomens-9bb988276</a></p>
+    </div>
+    <p class="foot">© 2025 João Pedro Milhomens</p>
+  </section>
+
+  <script>
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const onScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      revealEls.forEach(el => {
+        if (el.getBoundingClientRect().top < trigger) el.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', onScroll); onScroll();
+
+    // Subtle 3D tilt + parallax on mouse for the photo
+    const card = document.getElementById('photoCard');
+    const wrap = document.getElementById('photoWrap');
+    let raf;
+    function handleMove(e){
+      const rect = wrap.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      const rotateY = (x - 0.5) * 10; // left/right
+      const rotateX = (0.5 - y) * 8;  // up/down
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(()=>{
+        card.style.transform = `translateY(-6px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+    }
+    function resetTilt(){
+      cancelAnimationFrame(raf);
+      card.style.transform = "";
+    }
+    wrap.addEventListener('mousemove', handleMove);
+    wrap.addEventListener('mouseleave', resetTilt);
+  </script>
+</body>
+</html>
