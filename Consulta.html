@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto: Consulta de Colaboradores | João Pedro Milhomens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#071424;
+      --bg2:#0e2746;
+      --card:#102a4d;
+      --text:#e6eef7;
+      --muted:#a9c1d9;
+      --accent:#47a0ff;
+      --accent-2:#6cc0ff;
+      --glass: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      padding:20px;
+    }
+    a{text-decoration:none; color:var(--accent);}
+    a:hover{text-decoration:underline;}
+    .container{max-width:900px; margin:0 auto;}
+    h1{color:var(--accent-2); font-size:clamp(28px,4vw,44px);}
+    h2{color:var(--accent); font-size:clamp(20px,3vw,26px); margin-top:24px;}
+    p{line-height:1.6; color:var(--muted);}
+    .card{
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:24px;
+      box-shadow:0 12px 30px rgba(0,0,0,.25);
+      margin-top:20px;
+    }
+    .project-img{
+      width:100%;
+      border-radius:12px;
+      margin-bottom:16px;
+    }
+    .project-gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .project-gallery img{
+      width:100%;
+      border-radius:12px;
+      display:block;
+    }
+    .btn-back{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:12px;
+      background:var(--accent);
+      color:#fff;
+      margin-top:20px;
+      font-weight:500;
+      transition:0.3s;
+    }
+    .btn-back:hover{background:var(--accent-2);}
+    .tech-pills{
+      margin-top:16px;
+    }
+    .tech-pills span{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#0f2a4b;
+      border:1px solid var(--border);
+      margin:6px 6px 0 0;
+      font-size:13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Consulta de Colaboradores</h1>
+    <div class="card">
+      
+      <!-- Galeria de imagens -->
+      <div class="project-gallery">
+        <img src="CONSULTA IMG1.jfif" alt="Tela do projeto 1">
+        
+      </div>
+
+      <h2>Sobre o projeto</h2>
+      <p>
+        Este projeto foi particularmente significativo para mim, tanto pela relevância prática quanto pelo aprendizado que proporcionou. A iniciativa surgiu ao observar que o diretor e diversos colegas precisavam consultar várias planilhas em Excel para obter informações simples sobre colaboradores. Entendi que isso gerava perda de tempo e oportunidade, e decidi desenvolver um sistema capaz de centralizar essas consultas e entregá-las em poucos segundos.<br><br>
+
+Durante o desenvolvimento, tive a oportunidade de aprofundar meus conhecimentos em segurança da informação com o time de Cyber Security, além de compreender melhor a estrutura e o fluxo de dados da empresa em conversas com a área de Infraestrutura. Também interagi com outros setores para complementar a base e garantir que o sistema atendesse às necessidades reais do dia a dia.<br><br>
+
+Um dos pontos mais enriquecedores foi criar APIs em JSON para permitir que o sistema acessasse e utilizasse os dados de forma integrada, mesmo sem conexão direta com o banco da empresa. No resultado final, além da evolução técnica, ficou a satisfação de entregar uma solução que efetivamente otimizou processos internos.<br>
+      </p>
+
+      <h2>Tecnologias utilizadas</h2>
+      <div class="tech-pills">
+        <span>JavaScript</span>
+        <span>JSON</span>
+        <span>APIs</span>
+        <span>SQL</span>
+        <span>Node JS</span>
+      </div>
+
+      <a href="index.html#projetos" class="btn-back">Voltar para Projetos</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto: Consulta de Colaboradores | João Pedro Milhomens</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#071424;
+      --bg2:#0e2746;
+      --card:#102a4d;
+      --text:#e6eef7;
+      --muted:#a9c1d9;
+      --accent:#47a0ff;
+      --accent-2:#6cc0ff;
+      --glass: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      padding:20px;
+    }
+    a{text-decoration:none; color:var(--accent);}
+    a:hover{text-decoration:underline;}
+    .container{max-width:900px; margin:0 auto;}
+    h1{color:var(--accent-2); font-size:clamp(28px,4vw,44px);}
+    h2{color:var(--accent); font-size:clamp(20px,3vw,26px); margin-top:24px;}
+    p{line-height:1.6; color:var(--muted);}
+    .card{
+      background:var(--glass);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:24px;
+      box-shadow:0 12px 30px rgba(0,0,0,.25);
+      margin-top:20px;
+    }
+    .project-img{
+      width:100%;
+      border-radius:12px;
+      margin-bottom:16px;
+    }
+    .project-gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .project-gallery img{
+      width:100%;
+      border-radius:12px;
+      display:block;
+    }
+    .btn-back{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:12px;
+      background:var(--accent);
+      color:#fff;
+      margin-top:20px;
+      font-weight:500;
+      transition:0.3s;
+    }
+    .btn-back:hover{background:var(--accent-2);}
+    .tech-pills{
+      margin-top:16px;
+    }
+    .tech-pills span{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      background:#0f2a4b;
+      border:1px solid var(--border);
+      margin:6px 6px 0 0;
+      font-size:13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Consulta de Colaboradores</h1>
+    <div class="card">
+      
+      <!-- Galeria de imagens -->
+      <div class="project-gallery">
+        <img src="SISTEMA ORGANOGRAMA.png" alt="Tela do projeto 1">
+        
+      </div>
+
+      <h2>Sobre o projeto</h2>
+      <p>
+       O desenvolvimento deste sistema de organogramas surgiu da necessidade de transformar informações antes dispersas em diversas planilhas de Excel em uma visualização clara, dinâmica e facilmente acessível. A ideia central foi oferecer uma ferramenta capaz de interpretar listas extensas de cargos, níveis e supervisões e convertê-las em um organograma organizado, visualmente estruturado e disponível para download em poucos segundos.<br><br>
+
+Durante o projeto, aprofundei meus conhecimentos sobre hierarquização corporativa, manipulação de dados e criação de interfaces voltadas à clareza visual. Também explorei técnicas e componentes que permitiram automatizar a interpretação dos dados, garantindo que a estrutura exibida refletisse com precisão a hierarquia real da empresa, sem que o usuário precisasse ajustar manualmente cada relação.<br><br>
+
+Um dos pontos mais relevantes foi criar um fluxo que eliminasse a dependência de planilhas para consulta, permitindo que o usuário simplesmente enviasse ou colasse os dados e, imediatamente, recebesse o organograma formatado, ajustável e baixável. Essa abordagem trouxe agilidade, organização e uma experiência muito mais intuitiva.<br><br>
+
+O resultado final é um sistema moderno, flexível e funcional, que facilita análises estruturais, apresentações e tomadas de decisão, ao mesmo tempo em que representa um avanço significativo na forma como dados hierárquicos são visualizados.<br>
+
+      <h2>Tecnologias utilizadas</h2>
+      <div class="tech-pills">
+        <span>JavaScript</span>
+        <span>JSON</span>
+        <span>APIs</span>
+        <span>HTML</span>
+        <span>CSS</span>
+      </div>
+
+      <a href="index.html#projetos" class="btn-back">Voltar para Projetos</a>
+    </div>
+  </div>
+</body>
+</html>
