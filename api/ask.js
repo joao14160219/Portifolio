@@ -9,19 +9,19 @@ function loadMe() {
 
 function looksAboutMe(q) {
   const s = (q || "").toLowerCase();
+
   const allow = [
     "joão", "milhomens", "você", "seu", "sua", "sobre você",
     "experiência", "formação", "faculdade", "skills", "habilidades",
     "projeto", "projetos", "contato", "email", "telefone", "linkedin",
     "python", "sql", "react", "node", "vba", "power bi", "monday", "ia",
-    "trajetória", "carreira", "objetivo", "meta", "pontos fortes", "fraquezas",
+    "trajetória", "carreira", "objetivo", "meta", "pontos fortes", "fraqueza",
     "por que", "me conte", "fale sobre", "desafio", "resultado", "impacto"
   ];
 
-  // bloqueios óbvios de temas externos
   const block = [
     "notícia", "bitcoin", "política", "clima", "tempo", "jogo", "filme", "série",
-    "receita", "remédio", "celebridade", "fofoca"
+    "receita", "remédio", "celebridade"
   ];
 
   if (block.some(w => s.includes(w))) return false;
@@ -31,25 +31,12 @@ function looksAboutMe(q) {
 function refuse() {
   return {
     answer:
-      "Eu só respondo perguntas sobre o João Pedro (trajetória, experiências, projetos, habilidades, formação e contato). " +
-      "Se sua pergunta não for sobre isso, eu não respondo."
+      "Eu só respondo perguntas sobre o João Pedro (trajetória, experiências, projetos, habilidades, formação e contato)."
   };
 }
 
-// extrai texto do Responses API
-function extractOutputText(data) {
-  if (typeof data?.output_text === "string" && data.output_text.trim()) return data.output_text.trim();
-  try {
-    const out = data?.output || [];
-    for (const item of out) {
-      const content = item?.content || [];
-      for (const c of content) {
-        if (c?.type === "output_text" && typeof c?.text === "string" && c.text.trim()) return c.text.trim();
-        if (typeof c?.text === "string" && c.text.trim()) return c.text.trim();
-      }
-    }
-  } catch {}
-  return "Sem resposta.";
+function safeText(s) {
+  return (s || "").toString().slice(0, 6000);
 }
 
 export default async function handler(req, res) {
@@ -62,25 +49,24 @@ export default async function handler(req, res) {
 
     if (!looksAboutMe(q)) return res.status(200).json(refuse());
 
-    const key = process.env.OPENAI_API_KEY;
-    if (!key) return res.status(500).json({ answer: "Faltou configurar OPENAI_API_KEY no Vercel." });
+    const key = process.env.GEMINI_API_KEY;
+    if (!key) return res.status(500).json({ answer: "Faltou configurar GEMINI_API_KEY no Vercel." });
 
     const me = loadMe();
 
     const system = [
-      "Você é o João Pedro Milhomens em uma entrevista.",
-      "Você responde em PRIMEIRA PESSOA (Eu...).",
-      "Você deve responder SOMENTE com base no JSON fornecido, sem inventar nada.",
-      "Se a pergunta pedir algo fora do JSON, responda: 'Não tenho essa informação registrada' e redirecione para temas que você pode responder (trajetória, experiências, projetos, habilidades, formação, contato).",
-      "Se a pergunta não for sobre você, recuse educadamente e mantenha o escopo.",
+      "Você é o João Pedro Milhomens respondendo em uma entrevista.",
+      "Responda em PRIMEIRA PESSOA (Eu...).",
+      "Use SOMENTE as informações do JSON fornecido, sem inventar.",
+      "Se a pergunta pedir algo fora do JSON: diga 'Não tenho essa informação registrada' e redirecione para temas que você pode responder.",
       "Estilo: profissional, direto, sem emojis.",
-      "Estrutura sugerida (quando fizer sentido):",
-      "1) resposta curta (1-2 frases) 2) evidência/impacto (bullet ou frase) 3) fechamento (próximo passo/gancho).",
-      "Não mencione 'JSON', 'prompt', 'regras' ou 'OpenAI'."
+      "Quando fizer sentido, use: resposta curta + evidência/impacto + fechamento."
     ].join(" ");
 
-    const user = [
-      "Base de dados do João Pedro:",
+    const prompt = [
+      system,
+      "",
+      "JSON do João Pedro:",
       JSON.stringify(me, null, 2),
       "",
       "Pergunta do entrevistador:",
@@ -88,33 +74,30 @@ export default async function handler(req, res) {
     ].join("\n");
 
     const payload = {
-      model: "gpt-4o-mini",
-      temperature: 0.25,
-      input: [
-        { role: "system", content: system },
-        { role: "user", content: user }
-      ]
+      contents: [{ parts: [{ text: safeText(prompt) }] }],
+      generationConfig: { temperature: 0.25, maxOutputTokens: 450 }
     };
 
-    const r = await fetch("https://api.openai.com/v1/responses", {
+    const url =
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" +
+      encodeURIComponent(key);
+
+    const r = await fetch(url, {
       method: "POST",
-      headers: {
-        "Authorization": `Bearer ${key}`,
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
     const data = await r.json();
 
-    if (!r.ok) {
-      return res.status(500).json({ answer: `Erro na IA: ${JSON.stringify(data)}` });
-    }
+    if (!r.ok) return res.status(500).json({ answer: `Erro Gemini: ${JSON.stringify(data)}` });
 
-    const text = extractOutputText(data);
+    const text =
+      data?.candidates?.[0]?.content?.parts?.map(p => p.text).join("")?.trim() ||
+      "Sem resposta.";
+
     return res.status(200).json({ answer: text });
   } catch (e) {
     return res.status(500).json({ answer: `Erro interno: ${e?.message || e}` });
   }
 }
- 
