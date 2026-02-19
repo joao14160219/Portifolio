@@ -1,0 +1,134 @@
+{
+  "personal": {
+    "name": "João Pedro Milhomens",
+    "title": "Analista de Projetos Jr",
+    "location": "São Paulo, Brasil",
+    "email": "joaopppmil@gmail.com",
+    "phone": "+55 (11) 94739-9254",
+    "linkedin": "https://www.linkedin.com/in/jo%C3%A3o-milhomens-9bb988276/",
+    "profile_summary": "Analista de Projetos Jr com forte perfil analítico e foco em automação, estruturação de dados e melhoria contínua. Atua integrando tecnologia e gestão para transformar processos manuais em fluxos inteligentes, rastreáveis e orientados a decisão."
+  },
+
+  "professional_identity": {
+    "core_focus": [
+      "Automação de processos",
+      "Estruturação e análise de dados",
+      "Dashboards estratégicos",
+      "Integração com APIs",
+      "Gestão e acompanhamento de projetos"
+    ],
+    "positioning": "Profissional com mentalidade de produto e melhoria contínua, que utiliza tecnologia para acelerar decisões e reduzir retrabalho em ambientes corporativos."
+  },
+
+  "skills": {
+    "programming": ["Python", "JavaScript", "HTML", "CSS", "React", "Node.js"],
+    "data": ["SQL", "Power BI", "Excel Avançado", "VBA", "ETL"],
+    "project_tools": ["Monday.com", "Dashboards executivos", "KPIs", "Gestão de portfólio"],
+    "ai": ["Integração com OpenAI API", "Integração com Gemini", "IA para análise de projetos", "Automação com LLMs"],
+    "concepts": ["Automação", "APIs REST", "Modelagem de dados", "Melhoria de processos", "Análise estratégica"]
+  },
+
+  "education": {
+    "course": "Sistemas de Informação",
+    "institution": "Universidade Mackenzie",
+    "start_year": 2022,
+    "expected_graduation": 2027,
+    "focus_areas": [
+      "Estrutura de dados",
+      "Banco de dados",
+      "Desenvolvimento web",
+      "Lógica de programação",
+      "Análise de sistemas"
+    ]
+  },
+
+  "professional_experience": [
+    {
+      "company": "Verzani & Sandrini",
+      "role": "Estagiário em Remuneração (Automação e Dados)",
+      "period": "Jun/2025 – Atual",
+      "responsibilities": [
+        "Desenvolvimento de automações em Excel e VBA",
+        "Integração de dados para relatórios estratégicos",
+        "Criação de dashboards para suporte à decisão",
+        "Padronização de processos internos",
+        "Redução de retrabalho por meio de automação"
+      ],
+      "impact": [
+        "Melhoria na velocidade de análise de dados",
+        "Aumento de eficiência operacional",
+        "Estruturação de dados para melhor rastreabilidade"
+      ]
+    },
+    {
+      "company": "I.C.R.",
+      "role": "Estágio em Tecnologia",
+      "period": "Fev/2025 – Mai/2025",
+      "responsibilities": [
+        "Suporte técnico a usuários",
+        "Manutenção de ambientes e contas",
+        "Apoio na criação de scripts de automação",
+        "Documentação técnica"
+      ],
+      "impact": [
+        "Organização de processos internos",
+        "Melhoria na padronização de suporte"
+      ]
+    }
+  ],
+
+  "major_projects": [
+    {
+      "name": "Hub de Projetos com IA (Ainstein)",
+      "description": "Sistema web para gestão e acompanhamento de projetos integrado ao Monday.com, com IA capaz de resumir TAPs, classificar risco, sugerir decisões e gerar feedback executivo.",
+      "technologies": ["FastAPI", "JavaScript", "HTML", "CSS", "Monday API", "OpenAI API", "Gemini"],
+      "features": [
+        "Resumo executivo automático de projetos",
+        "Classificação de risco (baixo, médio, alto)",
+        "Sugestão de decisão (aprovar, aprovar com ressalvas, reprovar)",
+        "Atualização automática de status no Monday",
+        "Geração de e-mail de aprovação"
+      ],
+      "role": "Idealização, arquitetura, desenvolvimento backend e frontend"
+    },
+    {
+      "name": "Consulta de Colaboradores",
+      "description": "Sistema com API própria para consulta estruturada de dados de colaboradores, com foco em organização e acesso rápido a informações.",
+      "technologies": ["Python", "API REST", "SQL", "Frontend Web"],
+      "role": "Desenvolvimento completo"
+    },
+    {
+      "name": "Organograma Interativo",
+      "description": "Ferramenta para geração automática de organogramas a partir de listas hierárquicas, com navegação dinâmica.",
+      "technologies": ["JavaScript", "Balkan OrgChartJS", "HTML", "CSS"],
+      "role": "Desenvolvimento frontend e lógica de hierarquia"
+    },
+    {
+      "name": "Dashboards em Excel",
+      "description": "Construção de dashboards estratégicos diretamente no Excel com automação via VBA e organização inteligente de dados.",
+      "technologies": ["Excel", "VBA"],
+      "role": "Desenvolvimento e estruturação de indicadores"
+    }
+  ],
+
+  "career_journey": {
+    "beginning": "Início da jornada com forte interesse por tecnologia e análise de sistemas.",
+    "evolution": [
+      "Aprofundamento em programação e lógica",
+      "Interesse por automação de processos",
+      "Aplicação prática em ambientes corporativos",
+      "Integração entre tecnologia e gestão de projetos",
+      "Desenvolvimento de soluções com IA aplicada a PMO"
+    ],
+    "current_stage": "Atuação como Analista de Projetos Jr com foco em automação estratégica e integração de dados.",
+    "future_goal": "Escalar soluções baseadas em automação e IA para ambientes corporativos, atuando na interseção entre tecnologia, dados e gestão."
+  },
+
+  "differentials": [
+    "Perfil altamente analítico",
+    "Capacidade de transformar processos manuais em sistemas automatizados",
+    "Visão estratégica aliada a execução técnica",
+    "Foco em eficiência e melhoria contínua",
+    "Integração entre gestão e tecnologia"
+  ]
+}

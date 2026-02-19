@@ -66,9 +66,7 @@
     }
 
     /* Floating photo card */
-    .photo-wrap{
-      position:relative; perspective:1000px;
-    }
+    .photo-wrap{ position:relative; perspective:1000px; }
     .photo-card{
       position:relative;
       width:min(420px, 90%);
@@ -81,6 +79,7 @@
       background:linear-gradient(180deg, rgba(71,160,255,.15), rgba(108,192,255,.05));
       border:1px solid var(--border);
       animation:float 6s ease-in-out infinite;
+      will-change: transform;
     }
     .photo-card img{
       width:100%; height:100%; object-fit:cover; display:block;
@@ -132,11 +131,8 @@
       font-weight:500;
       transition:0.3s;
       margin-top:8px;
-}
-.project-btn:hover{
-  background:var(--accent-2);
-}
-
+    }
+    .project-btn:hover{ background:var(--accent-2); }
 
     .tag{display:inline-block; padding:8px 12px; border-radius:999px; background:#0f2a4b; border:1px solid var(--border); margin:6px 6px 0 0}
     .foot{ text-align:center; color:var(--muted); padding:30px 20px 60px }
@@ -151,6 +147,7 @@
     }
   </style>
 </head>
+
 <body>
   <nav class="nav">
     <div class="wrap">
@@ -168,11 +165,11 @@
 
   <header class="hero">
     <div>
-      <h1 class="title">• Dev • Analista em Formação</h1>
-      <div class="subtitle">Automação de processos, dados em dashboards e soluções web</div>
+      <h1 class="title">• Analista de Projetos Jr • Dev</h1>
+      <div class="subtitle">PMO • Automação de processos • Dados em dashboards • Soluções web</div>
       <p class="lead">
-        Apaixonado por tecnologia e pela transformação de dados crus em produtos visuais e decisões rápidas. 
-        Foco em Python, JavaScript (React/Node), SQL, VBA e Power BI.
+        Apaixonado por tecnologia e por tirar retrabalho do caminho. Atuo estruturando fluxos, automatizando rotinas e transformando dados crus
+        em decisões rápidas. Foco em Python, JavaScript (React/Node), SQL, VBA, Power BI, Monday e IA.
       </p>
 
       <div class="info-grid">
@@ -183,7 +180,6 @@
       </div>
     </div>
 
-    <!-- Floating / interactive photo on the right -->
     <div class="photo-wrap" id="photoWrap" aria-label="Foto de perfil">
       <div class="photo-card" id="photoCard">
         <img src="EU.jfif" alt="João Pedro sorrindo, camisa preta, fundo lilás" />
@@ -196,7 +192,8 @@
     <h2>Sobre</h2>
     <div class="card reveal">
       <p>
-        Gosto de simplificar o complexo. Tenho um interesse real por automações e por tudo que remove retrabalho, acelera processos e transforma dados em decisões. Curto entender o porquê das coisas, desmontar problemas e reconstruir soluções mais rápidas, inteligentes e eficientes.
+        Gosto de simplificar o complexo. Tenho um interesse real por automações e por tudo que remove retrabalho, acelera processos e transforma dados em decisões.
+        Curto entender o porquê das coisas, desmontar problemas e reconstruir soluções mais rápidas, inteligentes e eficientes.
       </p>
     </div>
   </section>
@@ -211,12 +208,19 @@
       <div class="card">SQL</div>
       <div class="card">VBA</div>
       <div class="card">Power BI</div>
+      <div class="card">Monday.com</div>
+      <div class="card">IA (LLMs / Automação)</div>
     </div>
+
     <div class="reveal" style="margin-top:12px">
       <span class="tag">Automação</span>
       <span class="tag">ETL</span>
       <span class="tag">APIs</span>
       <span class="tag">Dashboards</span>
+      <span class="tag">PMO</span>
+      <span class="tag">Gestão de Projetos</span>
+      <span class="tag">Monday</span>
+      <span class="tag">IA</span>
     </div>
   </section>
 
@@ -230,6 +234,7 @@
 
   <section id="experiencias">
     <h2>Experiências</h2>
+
     <div class="grid reveal">
       <div class="card xp-card">
         <h3>I.C.R. — Estágio em Tecnologia</h3>
@@ -261,39 +266,50 @@
           <span class="pill">Automação</span>
         </div>
       </div>
+
+      <div class="card xp-card">
+        <h3>Projetos PMO</h3>
+        <div class="xp-meta">2026 – Atual • São Paulo, BR</div>
+        <ul>
+          <li>Construção de automações e fluxos de aprovação com Monday (integração via API e rastreio de status).</li>
+          <li>Criação de dashboards e indicadores para acompanhamento de projeto (prazo, etapa, risco e decisão).</li>
+          <li>Aplicação de IA para resumo executivo, classificação de risco e geração de feedback acionável.</li>
+        </ul>
+        <div class="xp-pills">
+          <span class="pill">Monday</span>
+          <span class="pill">APIs</span>
+          <span class="pill">Automação</span>
+          <span class="pill">IA</span>
+        </div>
+      </div>
     </div>
   </section>
 
- <section id="projetos">
-  <h2>Projetos</h2>
-  <div class="grid reveal">
-    <!-- Projeto 1 -->
-    <div class="card xp-card">
-      <img src="CONSULTA IMG1.jfif" alt="Projeto 1" style="width:100%; height: 150px; border-radius:12px; margin-bottom:12px;">
-      <h3>CONSULTA DE COLABORADORES</h3>
-      <p>O projeto onde criei minhas próprias APIs e transformei caos em dados inteligentes.</p>
-      <a href="Consulta.html" class="project-btn">Ver mais</a>
+  <section id="projetos">
+    <h2>Projetos</h2>
+    <div class="grid reveal">
+      <div class="card xp-card">
+        <img src="CONSULTA IMG1.jfif" alt="Projeto Consulta de Colaboradores" style="width:100%; height:150px; border-radius:12px; margin-bottom:12px; object-fit:cover;">
+        <h3>CONSULTA DE COLABORADORES</h3>
+        <p>O projeto onde criei minhas próprias APIs e transformei caos em dados inteligentes.</p>
+        <a href="Consulta.html" class="project-btn">Ver mais</a>
+      </div>
+
+      <div class="card xp-card">
+        <img src="ORG 2.png" alt="Projeto Organograma Interativo" style="width:100%; height:150px; border-radius:12px; margin-bottom:12px; object-fit:cover;">
+        <h3>ORGANOGRAMA INTERATIVO</h3>
+        <p>Organogramas gerados em segundos. Estruturas claras, profissionais e fáceis de navegar.</p>
+        <a href="Organograma.html" class="project-btn">Ver mais</a>
+      </div>
+
+      <div class="card xp-card">
+        <img src="2.png" alt="Projeto Dashboards em Excel" style="width:100%; height:150px; border-radius:12px; margin-bottom:12px; object-fit:cover;">
+        <h3>DASHBOARDS EM EXCEL</h3>
+        <p>Dashboards ágeis sem depender de BI. Visualizações inteligentes direto no Excel.</p>
+        <a href="Excel.html" class="project-btn">Ver mais</a>
+      </div>
     </div>
-
-    <!-- Projeto 2 -->
-    <div class="card xp-card">
-      <img src="ORG 2.png" alt="Projeto 2" style="width:100%; height: 150px; border-radius:12px; margin-bottom:12px;">
-      <h3>ORGANOGRAMA INTERATIVO</h3>
-      <p>Organogramas gerados em segundos. Estruturas claras, profissionais e fáceis de navegar.</p>
-      <a href="Organograma.html" class="project-btn">Ver mais</a>
-    </div>
-
-    <!-- Projeto 3 -->
-    <div class="card xp-card">
-      <img src="2.png" alt="Projeto 3" style="width:100%; height: 150px; border-radius:12px; margin-bottom:12px;">
-      <h3>DASHBOARDS EM EXCEL</h3>
-      <p>Dashboards ágeis sem depender de BI. Visualizações inteligentes direto no Excel.</p>
-      <a href="Excel.html" class="project-btn">Ver mais</a>
-    </div>
-
-    
-</section>
-
+  </section>
 
   <section id="contato">
     <h2>Contato</h2>
@@ -304,6 +320,101 @@
     </div>
     <p class="foot">© 2025 João Pedro Milhomens</p>
   </section>
+
+  <!-- BOTÃO FLUTUANTE IA -->
+  <div id="iaFab" style="
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#47a0ff,#6cc0ff);
+    box-shadow:0 15px 35px rgba(0,0,0,.4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:9999;
+    font-weight:600;
+    color:#fff;
+    font-family:Poppins;
+    user-select:none;
+  ">IA</div>
+
+  <!-- PAINEL IA -->
+  <div id="iaPanel" style="
+    position:fixed;
+    bottom:100px;
+    right:24px;
+    width:350px;
+    max-height:500px;
+    background:rgba(16,42,77,.95);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    box-shadow:0 25px 60px rgba(0,0,0,.5);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    z-index:9999;
+  ">
+    <div style="
+      padding:14px 16px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-weight:600;
+      color:#6cc0ff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    ">
+      <span>Pergunte sobre mim</span>
+      <button id="iaClose" style="
+        border:none;
+        background:rgba(255,255,255,.08);
+        color:#e6eef7;
+        border-radius:10px;
+        padding:6px 10px;
+        cursor:pointer;
+      ">Fechar</button>
+    </div>
+
+    <div id="iaMessages" style="
+      padding:14px;
+      flex:1;
+      overflow-y:auto;
+      font-size:14px;
+      color:#e6eef7;
+    ">Faça uma pergunta como se estivesse me entrevistando.</div>
+
+    <div style="
+      padding:12px;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:flex;
+      gap:8px;
+    ">
+      <input id="iaInput" placeholder="Ex: Fale sobre você"
+        style="
+          flex:1;
+          padding:10px;
+          border-radius:12px;
+          border:1px solid rgba(255,255,255,.1);
+          background:rgba(255,255,255,.05);
+          color:#fff;
+          outline:none;
+        ">
+      <button id="iaSend" style="
+        padding:10px 14px;
+        border-radius:12px;
+        border:none;
+        background:#47a0ff;
+        color:#fff;
+        font-weight:600;
+        cursor:pointer;
+      ">→</button>
+    </div>
+  </div>
 
   <script>
     // Reveal on scroll
@@ -324,8 +435,8 @@
       const rect = wrap.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = (e.clientY - rect.top) / rect.height;
-      const rotateY = (x - 0.5) * 10; // left/right
-      const rotateX = (0.5 - y) * 8;  // up/down
+      const rotateY = (x - 0.5) * 10;
+      const rotateX = (0.5 - y) * 8;
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(()=>{
         card.style.transform = `translateY(-6px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
@@ -335,11 +446,66 @@
       cancelAnimationFrame(raf);
       card.style.transform = "";
     }
-    wrap.addEventListener('mousemove', handleMove);
-    wrap.addEventListener('mouseleave', resetTilt);
+    if (wrap && card){
+      wrap.addEventListener('mousemove', handleMove);
+      wrap.addEventListener('mouseleave', resetTilt);
+    }
+
+    // IA Chat
+    const fab = document.getElementById("iaFab");
+    const panel = document.getElementById("iaPanel");
+    const input = document.getElementById("iaInput");
+    const send = document.getElementById("iaSend");
+    const closeBtn = document.getElementById("iaClose");
+    const messages = document.getElementById("iaMessages");
+
+    function togglePanel(show){
+      const isOpen = panel.style.display === "flex";
+      const next = (typeof show === "boolean") ? show : !isOpen;
+      panel.style.display = next ? "flex" : "none";
+      if (next) setTimeout(() => input?.focus(), 50);
+    }
+
+    fab.addEventListener("click", () => togglePanel());
+    closeBtn.addEventListener("click", () => togglePanel(false));
+
+    async function sendQuestion(){
+      const question = (input.value || "").trim();
+      if(!question) return;
+
+      messages.innerHTML += `<div style="margin-bottom:10px;"><strong>Você:</strong><br>${question}</div>`;
+      input.value = "";
+      const typingId = "typing_" + Date.now();
+      messages.innerHTML += `<div id="${typingId}">Pensando...</div>`;
+      messages.scrollTop = messages.scrollHeight;
+
+      try{
+        const res = await fetch("/api/ask", {
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body: JSON.stringify({ question })
+        });
+
+        const data = await res.json();
+        const typingEl = document.getElementById(typingId);
+        if (typingEl) typingEl.remove();
+
+        messages.innerHTML += `
+          <div style="margin-bottom:16px;">
+            <strong>João:</strong><br>${(data.answer || "Sem resposta.")}
+          </div>
+        `;
+        messages.scrollTop = messages.scrollHeight;
+      }catch(e){
+        const typingEl = document.getElementById(typingId);
+        if (typingEl) typingEl.innerText = "Erro ao conectar com a IA.";
+      }
+    }
+
+    send.addEventListener("click", sendQuestion);
+    input.addEventListener("keypress", e=>{
+      if(e.key === "Enter") sendQuestion();
+    });
   </script>
 </body>
-
 </html>
-
-
