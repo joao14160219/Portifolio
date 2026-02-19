@@ -79,7 +79,7 @@ export default async function handler(req, res) {
     };
 
     const url =
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" +
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent?key=" +
       encodeURIComponent(key);
 
     const r = await fetch(url, {
@@ -101,4 +101,5 @@ export default async function handler(req, res) {
     return res.status(500).json({ answer: `Erro interno: ${e?.message || e}` });
   }
 }
+
 
